@@ -1,0 +1,75 @@
+$font-family-base: Yekan Bakh FaNum;
+$font-size-base: 16px;
+$font-size-large: 24px;
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+@font-face {
+  font-family: $font-family-base;
+  font-style: normal;
+  font-weight: $font-weight-normal;
+  src: url("@/assets/fonts/yekanBakhPro/yekanBakhFaNum/Webfonts/fonts/woff/YekanBakhFaNum-Regular.woff")
+      format("woff"),
+    url("@/assets/fonts/yekanBakhPro/yekanBakhFaNum/Webfonts/fonts/woff2/YekanBakhFaNum-Regular.woff2")
+      format("woff2");
+}
+
+body,
+html,
+* {
+  font-family: $font-family-base;
+}
+
+// Heading styles
+h1,
+h2,
+h3 {
+  font-weight: $font-weight-bold;
+}
+
+h1 {
+  font-size: $font-size-large;
+}
+
+h2 {
+  font-size: $font-size-large - 4px;
+}
+
+h3 {
+  font-size: $font-size-large - 8px;
+}
+
+// Paragraph styles
+p {
+  font-size: $font-size-base;
+  // margin-bottom: 15px;
+}
+
+// Links
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Media queries for responsive typography
+@media (max-width: 768px) {
+  body {
+    font-size: $font-size-base - 2px;
+  }
+
+  h1 {
+    font-size: $font-size-large - 3px;
+  }
+
+  h2 {
+    font-size: $font-size-large - 7px;
+  }
+
+  h3 {
+    font-size: $font-size-large - 11px;
+  }
+}

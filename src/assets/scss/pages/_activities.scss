@@ -1,0 +1,83 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+.main {
+  &__labels {
+  }
+  &__activities {
+  }
+}
+
+.labels {
+}
+
+.activities {
+  &__activity-container {
+    background: var(--bg-color-secondary);
+  }
+}
+
+.activity-container {
+  margin: 20px 0;
+  padding: 13px 8px;
+  border-radius: 24px;
+  width: 100%;
+  &_home {
+    width: 330px;
+    min-width: 330px;
+  }
+  &__activity-header {
+  }
+  &__activity-description {
+    border-bottom: solid 1px $Border-white;
+    padding: 10px 10px;
+    font-size: 12px;
+    color: var(--text-color-secondary);
+    text-align: right;
+  }
+  &__activity-footer {
+    margin-top: 0.5rem;
+    @include flex(null, space-between);
+  }
+  &__activity-tag {
+    margin: 12px;
+  }
+}
+.activity-header {
+  @include flex(column);
+  gap: 0.5rem;
+  &__activity-link {
+  }
+  &__image {
+    width: 100%;
+  }
+  &__title-container {
+    position: relative;
+    @include flex(null, space-between);
+    padding: 0 10px;
+  }
+  &__title {
+  }
+  &__action-image {
+    @include handleColorIcon;
+  }
+}
+
+.activity-tag {
+  @include tag($Warning-200, $Warning-900);
+}
+
+// Desktop Version
+
+@include responsive(desktop) {
+  .activity-container {
+  }
+  .activity-header {
+    &__activity-link {
+    }
+
+    &__title-container {
+    }
+    &__image {
+    }
+  }
+}

@@ -1,0 +1,40 @@
+$color-palette: (
+  light: (
+    --bg-color: #fafafa,
+    --bg-color-secondary: #ffffff,
+    --tag-bg-color: #fff,
+    --text-color-primary: #000,
+    --text-color-secondary: #5f5f5f,
+    --text-color-tertiary: #c0c0c0,
+    --background-shadow: #00000099,
+    --box-shadow: #00000034,
+    --box-shadow-primary: #0043650d,
+    --tag-add-color: #2471eb,
+    --tag-add-background: #f4f7fc,
+    --color-icon: invert(0),
+  ),
+  dark: (
+    --bg-color: #3d3d3d,
+    --bg-color-secondary: #222222,
+    --tag-bg-color: #818181,
+    --text-color-primary: #ffffff,
+    --text-color-secondary: #aaaaaa,
+    --text-color-tertiary: #525252,
+    --background-shadow: #58585899,
+    --box-shadow: #00000034,
+    --box-shadow-primary: #0043650d,
+    --tag-add-color: #2471eb,
+    --tag-add-background: #a7c8ff,
+    --color-icon: invert(1),
+  ),
+);
+
+:root {
+  @each $theme, $palette in $color-palette {
+    &[data-theme="#{$theme}"] {
+      @each $color, $value in $palette {
+        #{$color}: #{$value};
+      }
+    }
+  }
+}

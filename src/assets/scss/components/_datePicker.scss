@@ -1,0 +1,91 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.datepicker {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  &__header-calender {
+    margin-bottom: 1rem;
+  }
+  &__calendar {
+    display: grid;
+    grid-row-gap: 1rem;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .header-calender {
+    &__month-selector {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__icon {
+      @include handleColorIcon;
+    }
+    &__month-action {
+      display: flex;
+      gap: 1rem;
+    }
+
+    &__arrow {
+      border: 0;
+      display: flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      border-radius: 12px;
+      justify-content: center;
+      background-color: var(--bg-color);
+    }
+
+    &__month-name {
+      font-weight: 600;
+    }
+  }
+  .calender {
+    &__date {
+      border: 0;
+      display: flex;
+      width: 1.25rem;
+      padding: 0.5rem;
+      height: 1.25rem;
+      border-radius: 6px;
+      align-items: center;
+      justify-self: center;
+      justify-content: center;
+      border: 2px solid transparent;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:focus {
+        outline: 0;
+        color: $Primary500;
+        border: 2px solid $Tertiary-blue;
+      }
+
+      &_faded {
+        color: $Primary-gray;
+      }
+
+      &_current-day {
+        color: $White;
+        border-color: $Primary500;
+        background-color: $Primary500;
+
+        &:focus {
+          background-color: $Tertiary-blue;
+        }
+      }
+    }
+    &__week {
+      font-weight: 500;
+      font-size: 0.875em;
+      color: $Primary-gray;
+      justify-self: center;
+    }
+    &__day {
+      justify-self: center;
+    }
+  }
+}

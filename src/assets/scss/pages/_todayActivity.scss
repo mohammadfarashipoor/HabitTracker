@@ -1,0 +1,69 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.today-activity {
+  &__activity-content {
+    background-color: var(--bg-color);
+  }
+  .filter-tag {
+    @include tag(
+      var(--bg-color-secondary),
+      var(--text-color-primary),
+      var(--bg-color-secondary)
+    );
+  }
+}
+
+// <!-- labels -->
+.activity-content {
+  &__active-labels {
+    @include flex();
+    gap: 1.5rem;
+  }
+}
+.labels {
+  gap: 0.5rem;
+  display: flex;
+  padding: 1.25rem 0;
+
+  .labels__tag-item {
+    background: var(--bg-color-secondary);
+  }
+}
+
+.tag-item {
+  border-radius: 12px;
+  padding: 0rem 0.5rem;
+}
+
+.card {
+  &__header-context {
+    width: 100%;
+  }
+
+  .main-context {
+    width: 100%;
+
+    &__title-container {
+      @include flex($justify-content: space-between);
+    }
+
+    &__description {
+      text-align: justify;
+    }
+  }
+
+  .footer-context {
+    @include flex($justify-content: space-between);
+    width: 100%;
+
+    .texticona-box__symbol {
+      background: $Primary100;
+    }
+  }
+
+  .footer-context__tag-item {
+    background: $Error100;
+    color: $Error600;
+  }
+}

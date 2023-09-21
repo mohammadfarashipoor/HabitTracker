@@ -1,0 +1,41 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+.activities {
+  @include flex();
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  &__activity-component {
+    margin: 1.25rem 0rem;
+  }
+}
+.activity-component {
+  padding: 1rem;
+  border-radius: 24px;
+  background-color: var(--bg-color);
+
+  &__activity-header {
+  }
+  &__activity-description {
+    border-bottom: solid 1px $Border-white;
+    padding: 0.625rem 0.625rem;
+    font-size: 0.75rem;
+    text-align: justify;
+    line-height: 2.2;
+  }
+  &__activity-footer {
+    margin: 1rem 0;
+    @include flex($flex-direction: column, $justify-content: space-between);
+    gap: 0.625rem;
+  }
+}
+
+//actiivity type
+
+.activity-type {
+  @include tag();
+  &__activities {
+    padding: 5px 24px;
+    background: var(--bg-color);
+  }
+}
