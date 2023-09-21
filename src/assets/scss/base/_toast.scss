@@ -1,0 +1,15 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/extends" as *;
+
+.toast-style {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  color: white !important;
+}
+.toast-style svg {
+  filter: invert(1);
+}
+.Vue-Toastification__toast-body {
+  color: white;
+}

@@ -1,0 +1,76 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+.main {
+  &__labels {
+    // margin-bottom: 20px;
+  }
+
+  &__events {
+  }
+}
+
+.labels {
+  @include flex();
+  gap: 1rem;
+  &__label-item {
+    background-color: $White;
+  }
+}
+
+.label-item {
+  @include flex(null, center);
+  // border-radius: 12px;
+  // padding: 5px 7px;
+  @include tag(var(--tag-bg-color), var(--text-color-primary));
+  gap: 0.25rem;
+  &__image {
+  }
+  &__span {
+  }
+}
+
+.event-container {
+  padding: 26px 15px;
+  border-radius: 24px;
+  margin: 20px 0;
+  &__event-header {
+    position: relative;
+    @include flex(null, space-between);
+    gap: 0.5rem;
+  }
+  &__title {
+    font-weight: 700;
+  }
+  &__action-image {
+    @include handleColorIcon;
+  }
+  &__image {
+    @include handleColorIcon;
+  }
+  &__event-description {
+    border-bottom: solid 1.5px $Border-white;
+    padding: 10px 0;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-color-secondary);
+  }
+  &__tiny-description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 325px;
+  }
+  &__event-footer {
+    margin-top: 10px;
+  }
+}
+
+// Desktop Version
+
+@include responsive(desktop) {
+  .events {
+    @include flex();
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+}

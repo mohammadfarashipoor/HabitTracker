@@ -1,0 +1,21 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+.main {
+  &__empty-property {
+    // background-color: $White;
+  }
+}
+
+.empty-property {
+  @include flex(column, center, center);
+  height: 500px;
+  &__no-property {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 2.1;
+  }
+  &__plus-property {
+    font-size: 12px;
+    color: $Secondary-gray;
+  }
+}

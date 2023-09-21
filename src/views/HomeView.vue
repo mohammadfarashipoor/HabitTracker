@@ -1,7 +1,11 @@
-<script setup></script>
+<script setup>
+import ContentHome from "@/components/home/ContentHome.vue";
+</script>
 
 <template>
-  <div></div>
+  <!-- Content Home -->
+
+  <ContentHome />
 </template>
 
-<style></style>
+<style scoped></style>

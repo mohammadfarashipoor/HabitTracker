@@ -1,0 +1,85 @@
+@use "../abstracts/colors" as *;
+
+// display
+
+@mixin flex(
+  $flex-direction: row,
+  $justify-content: flex-start,
+  $align-items: stretch
+) {
+  display: flex;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+}
+
+// inputs
+@mixin inputIcon($direction: auto) {
+  position: absolute;
+  color: $Primary-blue;
+  width: 24px;
+  height: 24px;
+  top: 25%;
+  @if $direction == right {
+    right: 3%;
+  }
+  @if $direction == left {
+    left: 3%;
+  }
+}
+
+// date & time & author
+@mixin tag($background-color: #fff, $color: #000, $border: none) {
+  @include flex(null, center, center);
+  width: fit-content;
+  background-color: $background-color;
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 0px 10px;
+  &__small {
+    padding: 3px 0px;
+    color: $color;
+  }
+  &__span {
+    padding: 3px 0px;
+    color: $color;
+  }
+  &__image {
+  }
+}
+
+// responsive
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 481px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 960px) {
+      @content;
+    }
+  }
+}
+
+// mobile header -> title container
+
+@mixin titleContainer {
+  @include flex(null, center, center);
+  gap: 1rem;
+  &__back-link {
+    @include flex(null, center, center);
+  }
+  &__title {
+  }
+  &__image {
+    @include handleColorIcon();
+  }
+}
+
+// change color svg in theme
+@mixin handleColorIcon {
+  filter: var(--color-icon);
+}

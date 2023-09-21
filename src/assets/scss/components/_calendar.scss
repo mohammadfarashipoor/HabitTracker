@@ -1,0 +1,124 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.persian-calendar {
+  width: 340px;
+  padding: 1.5rem;
+  background-color: var(--bg-color-secondary);
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 20px;
+  &__calendar-header {
+    @include flex(null, space-between, center);
+    margin-bottom: 10px;
+  }
+  &__next-prev {
+    display: flex;
+  }
+  &__weekday-names {
+    pointer-events: none;
+    color: gray;
+    text-align: center;
+    padding: 13px;
+    border-radius: 12px;
+  }
+  &__table {
+    border-collapse: collapse;
+  }
+  &__row {
+  }
+  &__data {
+    text-align: center;
+    position: relative;
+    padding: 13px;
+    border-radius: 12px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  &__arrow {
+    transform: rotate(270deg);
+    cursor: pointer;
+    display: none;
+  }
+  &__event-date {
+    position: absolute;
+    background-color: var(--tag-add-color);
+    color: $White;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    right: -2px;
+    border-radius: 50%;
+  }
+  &__data:hover {
+    background-color: $Item-calender;
+    color: white;
+  }
+  &__prev-btn,
+  &__next-btn {
+    background-color: transparent;
+    @include handleColorIcon();
+    display: flex;
+    border: none;
+    border-radius: 4px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  &__prev-btn:hover,
+  &__next-btn:hover {
+    border: none;
+  }
+}
+
+#prev-btn,
+#next-btn {
+  background-color: transparent;
+  @include handleColorIcon();
+  display: flex;
+  border: none;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+  border: none;
+}
+
+.extera-dates {
+  pointer-events: none;
+}
+
+.clicked-day {
+  background-color: $Item-calender;
+  color: white;
+}
+.current-day {
+  background-color: var(--tag-add-color);
+  color: white;
+}
+
+.active-calendar {
+  display: table-row;
+}
+
+.inactive-calendar {
+  display: table-row;
+}
+
+@media screen and (max-width: 480px) {
+  .active-calendar {
+    display: none;
+  }
+
+  .persian-calendar {
+    &__arrow {
+      transform: rotate(270deg);
+      cursor: pointer;
+      display: block;
+      transform-origin: center center;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+}

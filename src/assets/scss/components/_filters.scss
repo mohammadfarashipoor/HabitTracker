@@ -1,0 +1,51 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+.main {
+  &__filters-container {
+  }
+}
+.filters-container {
+  @include flex(column);
+  gap: 10rem;
+  &__filter-main {
+  }
+  &__filter-item {
+    margin: 20px 0;
+  }
+  &__filter-bottom {
+  }
+}
+
+.filter-item {
+  border-bottom: solid 1px $Border-gray;
+  &__filter-title {
+    @include flex(null, space-between);
+  }
+  &__filter-tag {
+    margin: 10px;
+  }
+  &__title {
+    font-size: 14px;
+  }
+
+  &__image {
+    @include handleColorIcon();
+  }
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@include responsive(desktop) {
+  .filters-container {
+    &__filter-main {
+    }
+    &__filter-item {
+      margin: 20px 0;
+    }
+    &__filter-bottom {
+    }
+  }
+}

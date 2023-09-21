@@ -1,0 +1,33 @@
+@use "mixins" as *;
+@use "colors" as *;
+
+.boxShadowPrimary {
+  box-shadow: inset -1px 1px 4px 0px var(--box-shadow);
+}
+
+.boxShadowSecondary {
+  box-shadow: inset 0px 0px 4px 0px var(--box-shadow-primary);
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  height: 50px;
+}
+
+.inputText {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid $Border-gray;
+  outline: none;
+  direction: rtl;
+  font-size: 14px;
+  padding-right: 45px;
+  padding-top: 7px;
+  transition: all 0.3s ease;
+}
+
+.footerDateTime {
+  @include flex();
+  gap: 1rem;
+}

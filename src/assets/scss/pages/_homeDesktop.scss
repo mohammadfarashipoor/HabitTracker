@@ -1,0 +1,211 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+@include responsive(desktop) {
+  .home {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    // *? profile-header
+  }
+  .profile-header {
+    width: 100%;
+    box-shadow: none;
+    padding: 1rem 2rem;
+    @include flex($align-items: stretch, $justify-content: space-between);
+  }
+
+  .persian-calendar {
+    background-color: var(--bg-color);
+  }
+  .panel-context__datepicker {
+    background-color: var(--bg-color-secondary);
+  }
+  // *? event panel
+  .avatars-container {
+    width: 86px;
+    height: 33px;
+  }
+  .panel-context {
+    padding: 2rem;
+    display: block !important;
+    .context-article__title {
+      font-weight: 700;
+    }
+    &__datepicker {
+      padding: 0;
+    }
+    .event-container {
+      background: var(--bg-color);
+    }
+    &__context-article {
+      padding: 20px 0;
+    }
+  }
+  .panel-container {
+    display: block;
+    width: 25%;
+    flex-shrink: 0;
+    background: var(--bg-color-secondary);
+    align-items: flex-start;
+
+    &__activity-program {
+      position: sticky;
+      top: 0.125rem;
+    }
+  }
+  .event-footer_article {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 3rem;
+  }
+  .event-body__description_text-panel {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .event-header__image,
+  .add-avatar_hidden,
+  .activity-header__action-image,
+  .date-time_hidden,
+  .action-image,
+  .activity-tag_hidden,
+  .hidden,
+  .panel-context,
+  .nav-item_activitytype,
+  .context-article {
+    display: inherit !important;
+  }
+  .hide-important {
+    display: none !important;
+  }
+  // *? content style in web
+  .plan {
+    .plan__title {
+      display: block;
+    }
+    width: 100%;
+    .activities-info {
+      flex-direction: row;
+
+      .top-ranking {
+        width: 60%;
+      }
+      .reporter {
+        width: 40%;
+      }
+      .rank-report {
+        height: 8.5rem;
+        gap: 20px;
+      }
+    }
+
+    .medal-container {
+      width: 30%;
+
+      &__icon {
+        width: 50px;
+        height: 50px;
+      }
+      &__rate {
+        font-size: 1.5625rem;
+        top: 0.5625rem;
+        left: 1.3125rem;
+      }
+    }
+  }
+  .content {
+    width: 70%;
+    flex-wrap: nowrap;
+    border-radius: 24px;
+    .filters-time__line_breaken {
+      display: none;
+    }
+    .calender {
+      display: none;
+    }
+    // *? panel report
+
+    .filters-time {
+      display: flex;
+      padding: 24px;
+      justify-content: flex-end;
+    }
+    // *? component cart in activity, event , activity type
+    .component-card {
+      width: 100%;
+      .header-component__archive {
+        display: none;
+      }
+    }
+    .event-container {
+      width: 335px;
+      &__event-description {
+      }
+    }
+    .activity-container {
+      width: 330px;
+      .activity-footer {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .activity-link__image {
+        min-height: 125px;
+        max-height: 245px;
+      }
+      &__activity-description {
+        white-space: inherit;
+        width: 20rem;
+      }
+    }
+    .event-body__description_text-overflow {
+      white-space: inherit;
+    }
+  }
+  // *? navigation web
+  .navigation {
+    position: sticky;
+    right: 0;
+    top: 1px;
+    width: 5%;
+    gap: 13px;
+    padding-top: 78px;
+    height: 100vh;
+    flex-shrink: 0;
+    background: var(--bg-color-secondary);
+    flex-direction: column;
+    filter: none;
+    justify-content: flex-start;
+    .nav-container {
+      gap: 35px;
+      width: initial;
+      padding: 0.5rem 0;
+      flex-direction: column;
+    }
+    .nav-toggle {
+      flex-basis: 0 !important;
+      .toggle-label {
+        bottom: 5rem;
+      }
+      .dropmenu {
+        bottom: 13rem;
+        right: 6rem;
+      }
+    }
+    .dropmenu-item {
+      &_transform-first {
+        transform: translateY(0);
+      }
+      &_transform-two {
+        transform: translate(-25px, 35px);
+      }
+      &_transform-three {
+        transform: translate(-28px, 130px);
+      }
+    }
+    .nav-item_hidden {
+      display: none;
+    }
+  }
+}
