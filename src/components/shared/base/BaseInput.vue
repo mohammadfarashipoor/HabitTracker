@@ -44,23 +44,9 @@ const inputValue = ref();
     :icon="props.icon"
   />
   <BaseIcon
-    v-if="props.icon === 'lock' && statePass"
-    @click="
-      () => {
-        statePass = !statePass;
-      }
-    "
+    v-if="props.icon === 'lock'"
+    @click="() => (statePass = !statePass)"
     class="input-container__icon input-container__icon_left"
-    icon="eye"
-  />
-  <BaseIcon
-    v-if="props.icon === 'lock' && !statePass"
-    @click="
-      () => {
-        statePass = !statePass;
-      }
-    "
-    class="input-container__icon input-container__icon_left"
-    icon="eye-slash"
+    :icon="statePass ? 'eye' : 'eye-slash'"
   />
 </template>
