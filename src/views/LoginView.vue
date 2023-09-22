@@ -18,6 +18,9 @@ const submitLogin = async (values) => {
     store.$router.replace("/");
   }
 };
+setTimeout(() => {
+
+}, 2000);
 </script>
 
 <template>
@@ -59,7 +62,7 @@ const submitLogin = async (values) => {
         >
       </p>
     </div>
-    <BaseLoading :isLoading="loadingState.isLoading" />
+    <BaseLoading :isLoading="loadingState.isLoading"/>
   </main>
 </template>
 
