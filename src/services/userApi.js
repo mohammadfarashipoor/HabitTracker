@@ -1,4 +1,4 @@
-import { axiosInstance } from "@/plugins/axios";
+import { axiosInstance } from "@/plugins/axios/inedx";
 import { buildApiUrl, handleApiError } from "@/utilities/helpers";
 import { baseUrls } from "@/utilities/baseUrls";
 

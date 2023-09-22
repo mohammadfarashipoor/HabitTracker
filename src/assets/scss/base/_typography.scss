@@ -9,8 +9,10 @@ $font-weight-bold: 700;
   font-family: $font-family-base;
   font-style: normal;
   font-weight: $font-weight-normal;
-  src: url("@/assets/fonts/YekanBakhFaNum-Regular.woff") format("woff"),
-    url("@/assets/fonts/YekanBakhFaNum-Regular.woff2") format("woff2");
+  src: url("@/assets/fonts/yekanBakhPro/yekanBakhFaNum/Webfonts/fonts/woff/YekanBakhFaNum-Regular.woff")
+      format("woff"),
+    url("@/assets/fonts/yekanBakhPro/yekanBakhFaNum/Webfonts/fonts/woff2/YekanBakhFaNum-Regular.woff2")
+      format("woff2");
 }
 
 body,
