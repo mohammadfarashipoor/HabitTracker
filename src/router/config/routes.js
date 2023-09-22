@@ -7,7 +7,7 @@ const NotFoundView = () => import("@/views/NotFoundView.vue");
 const EventView = () => import("@/views/EventView.vue");
 const DefaultLayout = () => import("@/layouts/DefaultLayout.vue");
 const AuthLayout = () => import("@/layouts/AuthLayout.vue");
-const Profile = () => import("@/components/home/Profile.vue");
+const Profile = () => import("@/components/default/Profile.vue");
 const ActivityDetail = () =>
   import("@/components/activity/ActivityDetails.vue");
 const EventDetail = () => import("@/components/event/EventDetails.vue");
