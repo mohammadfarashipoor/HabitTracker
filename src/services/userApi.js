@@ -38,6 +38,7 @@ const getUser = async (id) => {
         },
       },
     };
+    const url = buildApiUrl(baseUrls.AUTH_TEST_API);
     const response = await axiosInstance.get(url, config);
     return response;
   } catch (error) {
@@ -86,7 +87,7 @@ const patchUser = async (data) => {
         id: data.id,
       },
     };
-    const response = await axiosInstance.patch(url, data, config);
+    const response = await axiosInstance.patch(url, data, config)
     return response;
   } catch (error) {
     throw error;
@@ -132,6 +133,7 @@ const getUserByEmail = async (email) => {
         },
       },
     };
+    const url = buildApiUrl(baseUrls.AUTH_TEST_API);
     const response = await axiosInstance.get(url, config);
     return response?.data?.results[0];
   } catch (error) {

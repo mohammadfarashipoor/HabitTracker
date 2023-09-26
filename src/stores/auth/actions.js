@@ -7,15 +7,16 @@ const toast = useToast();
 export default {
   async loginForm(data) {
     try {
-      const response = await login(data);
+      // const response = await login(data);
+      const response = true;
       if (response) {
-        const { token, email } = response;
-        const user = await getUserByEmail(email);
+        //const { token, email } = response;
+        const user = await getUserByEmail();
         this.user = user;
         const userName = user?.data?.name;
         const userId = user?.tags?.userId;
         localStorage.setItem("userId", userId);
-        Cookies.set("token", token);
+        Cookies.set("token", user.token);
         toast.success(`${userName} خوش آمدید`);
         return response;
       }

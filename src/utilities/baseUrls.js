@@ -9,6 +9,9 @@ const baseUrls = {
   CUSTOME_SERVICE_FILTER_WEEK: "/weekfilter",
   CUSTOME_SERVICE_FILTER_MONTH: "/monthfilter",
   CUSTOME_SERVICE_FILTER_YEAR: "/yearfilter",
+
+  //test api
+  AUTH_TEST_API:"https://run.mocky.io/v3/3d0e1bdc-a95a-4ea0-97e9-2d4df6f02435"
 };
 
 export { baseUrls };
