@@ -2,7 +2,7 @@ import { axiosInstance } from "@/plugins/axios";
 import { buildApiUrl, handleApiError } from "@/utilities/helpers";
 import { baseUrls } from "@/utilities/baseUrls";
 
-const url = buildApiUrl(baseUrls.BARJAVAND, "data");
+const url = buildApiUrl(baseUrls.DATA_TEST_API, "activity");
 
 /**
  * Get activity from server.
@@ -10,6 +10,7 @@ const url = buildApiUrl(baseUrls.BARJAVAND, "data");
  * @throws {Error} If there's an error getting the activity.
  */
 const getActivity = async () => {
+  // checked api
   try {
     const userId = localStorage.getItem("userId");
     const config = {
@@ -21,7 +22,7 @@ const getActivity = async () => {
       },
     };
 
-    const response = await axiosInstance.get("https://62c54870134fa108c24d269c.mockapi.io/activity");
+    const response = await axiosInstance.get(url);
 
     return response;
   } catch (error) {
@@ -62,8 +63,9 @@ const getActivityById = async (id) => {
  * @throws {Error} If there's an error posting the activity.
  */
 const postActivity = async (data) => {
+  // checked api
   try {
-    const response = await axiosInstance.post("https://62c54870134fa108c24d269c.mockapi.io/activity", data);
+    const response = await axiosInstance.post(url, data);
     return response;
   } catch (error) {
     throw error;

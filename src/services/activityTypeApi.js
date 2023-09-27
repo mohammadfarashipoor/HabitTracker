@@ -3,7 +3,7 @@ import { buildApiUrl, handleApiError, buildData } from "@/utilities/helpers";
 import { baseUrls } from "@/utilities/baseUrls";
 import { activityTypeTag } from "@/utilities/buildTags";
 
-const url = buildApiUrl(baseUrls.BARJAVAND, "data");
+const url = buildApiUrl(baseUrls.DATA_TEST_API, "activityType");
 
 /**
  * Get activity types from server.
@@ -11,6 +11,7 @@ const url = buildApiUrl(baseUrls.BARJAVAND, "data");
  * @throws {Error} If there's an error getting the activityTypes.
  */
 const getActivityType = async () => {
+  // checked api
   try {
     const userId = localStorage.getItem("userId");
     const config = {
@@ -21,7 +22,7 @@ const getActivityType = async () => {
         },
       },
     };
-    const response = await axiosInstance.get(`https://62c54870134fa108c24d269c.mockapi.io/activityType/`);
+    const response = await axiosInstance.get(url);
     return response;
   } catch (error) {
     throw error;
@@ -58,8 +59,9 @@ const getActivityTypeNameById = async (id) => {
  * @throws {Error} If there's an error posting the activityType.
  */
 const postActivityType = async (data) => {
+  // checked api
   try {
-    const response = await axiosInstance.post(`https://62c54870134fa108c24d269c.mockapi.io/activityType/`, data);
+    const response = await axiosInstance.post(url, data);
     return response;
   } catch (error) {
     throw error;
@@ -120,13 +122,14 @@ const patchActivityType = async (data) => {
  * @throws {Error} If there's an error puting the activityType.
  */
 const putActivityType = async (data) => {
+  // checked api
   try {
     const config = {
       params: {
         id: data.id,
       },
     };
-    const response = await axiosInstance.put(`https://62c54870134fa108c24d269c.mockapi.io/activityType/${data.id}`, data);
+    const response = await axiosInstance.put(buildApiUrl(url,data.id), data);
     return response;
   } catch (error) {
 
@@ -141,13 +144,14 @@ const putActivityType = async (data) => {
  * @throws {Error} If there's an error getting an activityType.
  */
 const getActivityTypeById = async (id) => {
+  // checked api
   try {
     const config = {
       params: {
         id: id,
       },
     };
-    const response = await axiosInstance.get(`https://62c54870134fa108c24d269c.mockapi.io/activityType/${id}`);
+    const response = await axiosInstance.get(buildApiUrl(url,id));
     return response;
   } catch (error) {
     throw error;
@@ -181,7 +185,7 @@ const handleActivityCounter = async (activityTypeId, action) => {
     throw error;
   }
 };
-handleActivityCounter(1,"add")
+
 export {
   getActivityType,
   postActivityType,
