@@ -9,8 +9,8 @@
   >
     <option
       v-for="activityType in store.activityTypes"
-      :key="activityType._id"
-      :value="activityType._id"
+      :key="activityType.id"
+      :value="activityType?.id"
     >
       {{ activityType.data.title }}
     </option>

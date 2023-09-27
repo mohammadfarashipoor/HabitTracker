@@ -21,8 +21,8 @@ const getActivityType = async () => {
         },
       },
     };
-    const response = await axiosInstance.get(url, config);
-    return response?.data?.results;
+    const response = await axiosInstance.get(`https://62c54870134fa108c24d269c.mockapi.io/activityType/`);
+    return response;
   } catch (error) {
     throw error;
   }
@@ -59,7 +59,7 @@ const getActivityTypeNameById = async (id) => {
  */
 const postActivityType = async (data) => {
   try {
-    const response = await axiosInstance.post(url, data);
+    const response = await axiosInstance.post(`https://62c54870134fa108c24d269c.mockapi.io/activityType/`, data);
     return response;
   } catch (error) {
     throw error;
@@ -126,7 +126,7 @@ const putActivityType = async (data) => {
         id: data.id,
       },
     };
-    const response = await axiosInstance.put(url, data, config);
+    const response = await axiosInstance.put(`https://62c54870134fa108c24d269c.mockapi.io/activityType/${data.id}`, data);
     return response;
   } catch (error) {
 
@@ -147,8 +147,8 @@ const getActivityTypeById = async (id) => {
         id: id,
       },
     };
-    const response = await axiosInstance.get(url, config);
-    return response?.data?.results[0];
+    const response = await axiosInstance.get(`https://62c54870134fa108c24d269c.mockapi.io/activityType/${id}`);
+    return response;
   } catch (error) {
     throw error;
   }
@@ -170,17 +170,18 @@ const handleActivityCounter = async (activityTypeId, action) => {
     };
     if (action === "add") {
       newData.activityCounter = ++activityType.activityCounter;
-    } else if (action == "delete") {
+    } else if (action === "delete") {
       newData.activityCounter = --activityType.activityCounter;
     }
     let postData = buildData(newData, undefined, "activityType");
     postData.id = activityTypeId;
+
     const response = await putActivityType(postData);
   } catch (error) {
     throw error;
   }
 };
-
+handleActivityCounter(1,"add")
 export {
   getActivityType,
   postActivityType,

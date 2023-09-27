@@ -11,8 +11,7 @@ const activityModalSchema = yup.object({
   date: yup.string().required(),
   fromHour: yup.string().required(),
   toHour: yup.string().required(),
-  // activityType: yup.string().required(),
-  activityType: yup.string(),
+ activityType: yup.string().required(),
 });
 
 const activityTypeModalSchema = yup.object({
