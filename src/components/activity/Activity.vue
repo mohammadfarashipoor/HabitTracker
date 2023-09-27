@@ -16,6 +16,10 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  activityID:{
+    type: String,
+    required: true,
+  },
   homeCard: {
     type: Boolean,
   },
@@ -23,7 +27,6 @@ const props = defineProps({
     type: Number,
   },
 });
-console.log(props.activity)
 
 props.activity.fromHour = getTimeWithoutSecond(
   props.activity.fromHour
@@ -52,7 +55,7 @@ function confirmRemove() {
 function editCard() {
   setModalState(!modalState.value);
 }
-let activityId = ref(props.activity._id);
+let activityId = ref(props.activityID);
 let activity = ref(props.activity);
 
 </script>

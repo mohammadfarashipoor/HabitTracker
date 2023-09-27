@@ -43,7 +43,7 @@ export default {
     try {
       const activity = await getActivityById(id);
       await deleteActivity(id);
-      await handleActivityCounter(activity.activityType, "delete");
+      await handleActivityCounter(activity.id, "delete");
       await this.getActivities();
       await activityTypestore.getActivityTypes();
       await homestore.yearFilter();

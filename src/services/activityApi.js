@@ -37,14 +37,15 @@ const getActivity = async () => {
  * @throws {Error} If there's an error getting the activity.
  */
 const getActivityById = async (id) => {
+  // checked api
   try {
     const config = {
       params: {
         id: id,
       },
     };
-    const response = await axiosInstance.get(url, config);
-    return response?.data?.results[0]?.data;
+    const response = await axiosInstance.get(buildApiUrl(url, id));
+    return response;
   } catch (error) {
     throw error;
   }
@@ -79,6 +80,7 @@ const postActivity = async (data) => {
  * @throws {Error} If there's an error deleting the activity.
  */
 const deleteActivity = async (id) => {
+  // checked api
   try {
     const config = {
       params: {
@@ -86,7 +88,7 @@ const deleteActivity = async (id) => {
         schemaName: "activity",
       },
     };
-    const response = await axiosInstance.delete(url, config);
+    const response = await axiosInstance.delete(buildApiUrl(url, id));
     return response;
   } catch (error) {
     throw error;

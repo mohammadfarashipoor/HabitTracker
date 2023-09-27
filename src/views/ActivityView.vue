@@ -29,7 +29,8 @@ getActivities();
       <section class="main__activities activities">
         <Activity
           v-for="(activity, index) in store.activities"
-          :key="activity._id"
+          :key="activity.id"
+          :activityID="activity.id"
           :activity="activity.data"
           :indexItem="index"
           :homeCard="false"
