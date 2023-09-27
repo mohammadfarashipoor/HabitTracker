@@ -30,7 +30,7 @@ function confirmRemove() {
 function editCard() {
   setModalState(!modalState.value);
 }
-const activityTypeId = ref(props.activityType._id);
+const activityTypeId = ref(props.activityType.id);
 const activityType = ref(props.activityType.data);
 </script>
 <template>

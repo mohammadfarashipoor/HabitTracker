@@ -36,14 +36,15 @@ const getActivityType = async () => {
  * @throws {Error} If there's an error getting an activityType.
  */
 const getActivityTypeNameById = async (id) => {
+  // checked api
   try {
     const config = {
       params: {
         id: id,
       },
     };
-    const response = await axiosInstance.get(url, config);
-    return response?.data?.results[0]?.data?.title;
+    const response = await axiosInstance.get(buildApiUrl(url,id));
+    return response;
   } catch (error) {
     throw error;
   }
@@ -75,6 +76,7 @@ const postActivityType = async (data) => {
  * @throws {Error} If there's an error deleting the activityType.
  */
 const deleteActivityType = async (id) => {
+  // checked api
   try {
     const config = {
       params: {
@@ -82,7 +84,7 @@ const deleteActivityType = async (id) => {
         schemaName: "activityType",
       },
     };
-    const response = await axiosInstance.delete(url, config);
+    const response = await axiosInstance.delete(buildApiUrl(url,id));
     return response;
   } catch (error) {
 

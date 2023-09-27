@@ -153,7 +153,7 @@ let activity = ref(props.activity);
         :class="{ ' activity-tag_hidden': homeCard }"
       >
         <small class="activity-tag__small font-14">{{
-          activity.activityType
+          activity?.activityType?.data?.title
         }}</small>
       </div>
     </div>

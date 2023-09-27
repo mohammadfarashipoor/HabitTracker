@@ -28,7 +28,7 @@ getActivityTypes();
       <section class="main__activities activities">
         <activityType
           v-for="activityType in store.activityTypes"
-          :key="activityType._id"
+          :key="activityType.id"
           :activityType="activityType"
         />
       </section>
