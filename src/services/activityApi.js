@@ -20,8 +20,10 @@ const getActivity = async () => {
         },
       },
     };
-    const response = await axiosInstance.get(url, config);
-    return response?.data?.results;
+
+    const response = await axiosInstance.get("https://62c54870134fa108c24d269c.mockapi.io/activity");
+
+    return response;
   } catch (error) {
     throw error;
   }
@@ -61,7 +63,7 @@ const getActivityById = async (id) => {
  */
 const postActivity = async (data) => {
   try {
-    const response = await axiosInstance.post(url, data);
+    const response = await axiosInstance.post("https://62c54870134fa108c24d269c.mockapi.io/activity", data);
     return response;
   } catch (error) {
     throw error;

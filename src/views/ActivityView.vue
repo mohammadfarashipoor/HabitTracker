@@ -30,7 +30,7 @@ getActivities();
         <Activity
           v-for="(activity, index) in store.activities"
           :key="activity._id"
-          :activity="activity"
+          :activity="activity.data"
           :indexItem="index"
           :homeCard="false"
         />

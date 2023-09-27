@@ -23,14 +23,16 @@ const props = defineProps({
     type: Number,
   },
 });
-props.activity.data.fromHour = getTimeWithoutSecond(
-  props.activity.data.fromHour
+console.log(props.activity)
+
+props.activity.fromHour = getTimeWithoutSecond(
+  props.activity.fromHour
 );
 const handleDataFormats = async () => {
-  props.activity.data.toHour = getTimeWithoutSecond(props.activity.data.toHour);
-  props.activity.data.date = getDateWithPersianMonth(props.activity.data.date);
-  props.activity.data.activityType = await getActivityTypeNameById(
-    props.activity.data.activityType
+  props.activity.toHour = getTimeWithoutSecond(props.activity.toHour);
+  props.activity.date = getDateWithPersianMonth(props.activity.date);
+  props.activity.activityType = await getActivityTypeNameById(
+    props.activity.activityType
   );
 };
 handleDataFormats();
@@ -51,7 +53,8 @@ function editCard() {
   setModalState(!modalState.value);
 }
 let activityId = ref(props.activity._id);
-let activity = ref(props.activity.data);
+let activity = ref(props.activity);
+
 </script>
 
 <template>

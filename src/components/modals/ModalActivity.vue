@@ -32,8 +32,8 @@ const store = activityStore();
 const homestore = homeStore();
 let images = [];
 const submitActivity = async (values) => {
-  const imageIds = await postImage(images);
-  await store.addActivity(values, imageIds);
+  //const imageIds = await postImage(images);
+  await store.addActivity(values, "imageIds");
   await homestore.yearFilter();
   props.setModalState(!props.modalState);
   if (storeToggle.toggleState) {

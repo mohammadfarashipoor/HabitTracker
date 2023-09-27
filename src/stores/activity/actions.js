@@ -23,7 +23,7 @@ export default {
       const postData = buildData(newData, tag, "activity");
       const response = await postActivity(postData);
       toast.success(`${data.title} افزوده شد`);
-      await handleActivityCounter(data.activityType, "add");
+      //await handleActivityCounter(data.activityType, "add");
       await this.getActivities();
       await activityTypestore.getActivityTypes();
     } catch (error) {
