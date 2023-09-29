@@ -8,6 +8,7 @@ import WieghtIcon from "@/components/shared/icons/WieghtIcon.vue";
 import ModalActivity from "@/components/modals/ModalActivity.vue";
 import ModalEvent from "@/components/modals/ModalEvent.vue";
 import AddActivityType from "@/components/modals/AddActivityType.vue";
+import TeleportComponent from "@/components/shared/base/TeleportComponent.vue"
 import { useState } from "@/composables/state.js";
 import { useRoute } from "vue-router";
 import { toggleNavigationStore } from "@/stores/toggleNavigationStore";
@@ -68,12 +69,12 @@ const isActive = (path) => {
           <span class="dropmenu-item__title font-18">نوع فعالیت</span>
         </div>
 
-        <Teleport to="body">
+        <TeleportComponent>
+          <div v-if="showActivityType">
           <AddActivityType
-            v-if="showActivityType"
             :setModalState="setShowActivityType"
             :modalState="showActivityType"
-        /></Teleport>
+        /></div></TeleportComponent>
 
         <div
           class="dropmenu__dropmenu-item dropmenu-item_transform-two"
@@ -87,12 +88,13 @@ const isActive = (path) => {
           <span class="dropmenu-item__title font-18">فعالیت</span>
         </div>
 
-        <Teleport to="body">
+        <TeleportComponent>
+          <div v-if="showActivity">
           <ModalActivity
-            v-if="showActivity"
+
             :setModalState="setShowActivity"
             :modalState="showActivity"
-        /></Teleport>
+        /></div></TeleportComponent>
 
         <div
           class="dropmenu__dropmenu-item dropmenu-item_transform-three"
@@ -105,12 +107,13 @@ const isActive = (path) => {
           <FlashIcon class="dropmenu-item__icon" />
           <span class="dropmenu-item__title font-18">رویداد</span>
         </div>
-        <Teleport to="body">
+        <TeleportComponent>
+          <div v-if="showEvent">
           <ModalEvent
-            v-if="showEvent"
+
             :setModalState="setShowEvent"
             :modalState="showEvent"
-        /></Teleport>
+        /></div></TeleportComponent>
       </div>
       <div class="nav-toggle__background-shadow"></div>
     </div>

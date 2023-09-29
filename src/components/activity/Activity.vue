@@ -11,6 +11,7 @@ import {
   getDateWithPersianMonth,
 } from "@/utilities/helpers";
 import { ref } from "vue";
+import TeleportComponent from "@/components/shared/base/TeleportComponent.vue";
 const props = defineProps({
   activity: {
     type: Object,
@@ -103,13 +104,14 @@ let activity = ref(props.activity);
           :itemRemove="activity"
           @removeCard="removeCard"
           @editCard="editCard"
-        /><Teleport to="body">
+        /><TeleportComponent>
+        <div v-if="modalState">
           <ModalActivity
-            v-if="modalState"
+
             :setModalState="setModalState"
             :modalState="modalState"
-        /></Teleport>
-        <Teleport to="body">
+        /></div></TeleportComponent>
+        <TeleportComponent>
           <ModalRemove
             v-show="showRemoveModal"
             @confirmRemove="confirmRemove"
@@ -118,7 +120,7 @@ let activity = ref(props.activity);
             type="فعالیت"
             removeKey="activity"
             :id="activityId"
-        /></Teleport>
+        /></TeleportComponent>
       </div>
     </div>
     <p

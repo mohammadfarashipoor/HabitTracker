@@ -95,7 +95,6 @@ const [show, setShow] = useState(false);
         </div>
       </div>
     </div>
-    {{VisibleInMobileProfile && !show}}
     <div v-if="VisibleInMobileProfile">
       <Profile v-if="VisibleInMobileProfile && show" @setShow="setShow" />
     </div>
