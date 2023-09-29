@@ -6,6 +6,7 @@ import ModalRemove from "@/components/modals/ModalRemove.vue";
 import AddAvatar from "@/components/shared/avatars/AddAvatar.vue";
 import EditAndRemove from "@/components/modals/EditAndRemove.vue";
 import { ref } from "vue";
+import TeleportComponent from "@/components/shared/base/TeleportComponent.vue";
 
 const props = defineProps({
   event: {
@@ -110,11 +111,11 @@ function editCard() {
         @editCard="editCard"
         :setModalState="setModalState"
       /><TeleportComponent>
+      <div v-if="modalState">
         <ModalEvent
-          v-if="modalState"
           :setModalState="setModalState"
           :modalState="modalState"
-      /></TeleportComponent>
+      /></div></TeleportComponent>
       <TeleportComponent>
         <ModalRemove
           v-show="showRemoveModal"
