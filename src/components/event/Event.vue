@@ -109,13 +109,13 @@ function editCard() {
         @removeCard="removeCard"
         @editCard="editCard"
         :setModalState="setModalState"
-      /><Teleport to="body">
+      /><TeleportComponent>
         <ModalEvent
           v-if="modalState"
           :setModalState="setModalState"
           :modalState="modalState"
-      /></Teleport>
-      <Teleport to="body">
+      /></TeleportComponent>
+      <TeleportComponent>
         <ModalRemove
           v-show="showRemoveModal"
           :id="props.event.title"
@@ -124,7 +124,7 @@ function editCard() {
           @cancelRemove="cancelRemove"
           message="اطمینان دارید"
           type="رویداد"
-      /></Teleport>
+      /></TeleportComponent>
     </div>
     <p
       class="event-container__event-description"

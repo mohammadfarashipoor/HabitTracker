@@ -3,6 +3,7 @@ import { useState } from "@/composables/state";
 import EditAndRemove from "@/components/modals/EditAndRemove.vue";
 import ModalRemove from "@/components/modals/ModalRemove.vue";
 import AddActivityType from "@/components/modals/AddActivityType.vue";
+import TeleportComponent from "@/components/shared/base/TeleportComponent.vue"
 import { ref } from "vue";
 const props = defineProps({
   activityType: {
@@ -57,12 +58,13 @@ const activityType = ref(props.activityType.data);
         @editCard="editCard"
         @removeCard="removeCard"
       />
-
+      <TeleportComponent>
+        <div v-if="modalState">
       <AddActivityType
-        v-if="modalState"
+
         :setModalState="setModalState"
         :modalState="modalState"
-      /><Teleport to="body">
+      /></div></TeleportComponent><TeleportComponent>
         <ModalRemove
           v-show="showRemoveModal"
           @confirmRemove="confirmRemove"
@@ -71,7 +73,7 @@ const activityType = ref(props.activityType.data);
           type="نوع فعالیت"
           removeKey="activityType"
           :id="activityTypeId"
-      /></Teleport>
+      /></TeleportComponent>
     </div>
     <div class="activity-container__activity-footer activity-footer">
       <div class="activity-container__time-details time-details">

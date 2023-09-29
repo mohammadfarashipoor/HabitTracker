@@ -1,6 +1,7 @@
 <script setup>
 import FilterSelector from "@/components/filters/FilterSelector.vue";
 import { useState } from "@/composables/state.js";
+import TeleportComponent from "@/components/shared/base/TeleportComponent.vue";
 
 const [filterSelectorState, setFilterSelectorState] = useState(false);
 </script>
@@ -34,10 +35,10 @@ const [filterSelectorState, setFilterSelectorState] = useState(false);
       <span class="label-item__span">افراد</span>
     </div>
   </div>
-  <Teleport to="body">
+  <TeleportComponent>
+    <div  v-if="filterSelectorState">
     <FilterSelector
-      v-if="filterSelectorState"
       :setFilterSelectorState="setFilterSelectorState"
       :filterSelectorState="filterSelectorState"
-  /></Teleport>
+  /></div></TeleportComponent>
 </template>

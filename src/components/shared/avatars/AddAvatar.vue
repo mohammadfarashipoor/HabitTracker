@@ -28,7 +28,7 @@ const [show, isShow] = useState(false);
     <img src="@/assets/images/icons/add-avatar.svg" />
     <small class="add-avatar__small font-14"> اضافه کردن</small>
   </div>
-  <Teleport to="body"> <ShareAvatars :show="show" :isShow="isShow" /></Teleport>
+  <ShareAvatars :show="show" :isShow="isShow" />
 </template>
 
 <style>
