@@ -6,14 +6,18 @@ import FirstActivityType from "@/components/activityType/FirstActivityType.vue";
 import MostActivityTypes from "@/components/activityType/MostActivityTypes.vue";
 import ActivityType from "@/components/activityType/ActivityType.vue";
 import EventReport from "@/components/event/EventReport.vue";
-import { ref, onMounted, onBeforeUnmount, computed } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { homeStore } from "@/stores/home";
 import { activityTypeStore } from "@/stores/activityType";
+import { activityStore } from "@/stores/activity";
 import BoxContainer from "@/components/default/BoxContainer.vue";
+import {resizeListener} from "@/utilities/resizeListener.js";
 const homestore = homeStore();
-
 const activitytypestore = activityTypeStore();
+const activitystore = activityStore();
+
 activitytypestore.getActivityTypes();
+activitystore.getActivities();
 let mostActivityTypes = computed(() => {
   return homestore.mostActivityTypes;
 });
@@ -66,30 +70,30 @@ const countEmptyCard = ref({
   emptyActivities: 0,
   emptyActivityTypes: 0,
 });
-const countEmpty = ref();
+
+setTimeout(() => {
+  hanldeCountEmpty(window.innerWidth)
+}, 500);
 
 onMounted(() => {
-  window.addEventListener("resize", () => hanldeCountEmpty(window.innerWidth));
-  countEmpty.value = window.innerWidth;
-  hanldeCountEmpty(countEmpty.value);
+  resizeListener(hanldeCountEmpty)
+  hanldeCountEmpty(window.innerWidth);
 });
-onBeforeUnmount(() => {
-  window.addEventListener("resize", () => hanldeCountEmpty(window.innerWidth));
-});
+
 
 function hanldeCountEmpty(screenWidth) {
   if (screenWidth < 960) {
     //for display one empty card in mobile
     countEmptyCard.value.emptyEvent = events.value.length < 1 ? 1 : 0;
     countEmptyCard.value.emptyActivities =
-      homestore.activities.length < 1 ? 1 : 0;
+      activitystore.activities.length < 1 ? 1 : 0;
     countEmptyCard.value.emptyActivityTypes =
       activitytypestore.activityTypes.length < 1 ? 1 : 0;
   } else {
     countEmptyCard.value.emptyEvent =
       events.value.length < 3 ? 3 - events.value.length : 0;
     countEmptyCard.value.emptyActivities =
-      homestore.activities.length < 3 ? 3 - homestore.activities.length : 0;
+      activitystore.activities.length < 3 ? 3 - activitystore.activities.length : 0;
     countEmptyCard.value.emptyActivityTypes =
       activitytypestore.activityTypes.length < 3
         ? 3 - activitytypestore.activityTypes.length
@@ -157,15 +161,16 @@ function hanldeCountEmpty(screenWidth) {
     <BoxContainer title="فعالیت ها" path="/activities">
       <template #content>
         <Activity
-          v-for="(activity, index) in homestore.activities"
-          :key="activity._id"
+          v-for="(activity, index) in activitystore.activities"
           :homeCard="true"
           :indexItem="index"
-          :activity="activity"
+          :key="activity.id"
+          :activityID="activity.id"
+          :activity="activity.data"
         />
         <div
           v-for="empty in countEmptyCard.emptyActivities"
-          v-if="3 - homestore.activities.length > 0"
+          v-if="3 - activitystore.activities.length > 0"
           class="body-component__empty-card body-component__empty-card_activty"
         >
           <img src="@/assets/images/icons/Plus.svg" alt="" />
@@ -178,7 +183,7 @@ function hanldeCountEmpty(screenWidth) {
       <template #content>
         <ActivityType
           v-for="activityType in activitytypestore.activityTypes"
-          :key="activityType._id"
+          :key="activityType.id"
           :homeCard="true"
           :activityType="activityType"
         />

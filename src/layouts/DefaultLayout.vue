@@ -5,15 +5,17 @@ import HomeHeader from "@/components/default/headers/HomeHeader.vue";
 import ActionHeader from "@/components/default/headers/ActionHeaders.vue";
 import { onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import {resizeListener} from "@/utilities/resizeListener.js";
 const router = useRouter();
-const route = useRoute();
+const route = useRoute()
+const profileHandle= () => {
+  //handle profile mobile page in desktop and redirect to home
+  if (route.path === "/profile" && window.innerWidth > 960) {
+    router.push({ path: "/" });
+  }
+}
 onMounted(() => {
-  window.addEventListener("resize", () => {
-    //handle profile mobile page in desktop and redirect to home
-    if (route.path === "/profile" && window.innerWidth > 960) {
-      router.push({ path: "/" });
-    }
-  });
+  resizeListener(profileHandle)
 });
 
 const actionHeaders = [

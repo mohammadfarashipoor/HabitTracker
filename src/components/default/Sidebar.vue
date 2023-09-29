@@ -8,34 +8,35 @@ import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useState } from "@/composables/state.js";
 import { useRoute } from "vue-router";
 import { authStore } from "@/stores/auth";
+import {resizeListener} from "@/utilities/resizeListener.js";
 
 const themeToggle = ref();
-const VisibleInMobile = ref(true);
+const VisibleInMobileCalender = ref(true);
+const VisibleInMobileProfile = ref(true);
 const route = useRoute();
 const store = authStore();
 store.getUserInformation();
-function handleVisibleInMobile() {
+function handleVisibleInMobile(showInPath,refValue) {
   if (window.innerWidth < 960) {
     // display calendar in mobile just in home
-    if (route.path === "/") {
-      VisibleInMobile.value = true;
-    } else {
-      VisibleInMobile.value = false;
-    }
+    refValue.value = route.path === showInPath;
   } else {
     // display calendar in desktop for all page
-    VisibleInMobile.value = true;
-  }
-}
+    refValue.value = true;
+  }}
+
+
 watch(route, () => {
   //call on change route
-  handleVisibleInMobile();
+  handleVisibleInMobile("/",VisibleInMobileCalender);
+  handleVisibleInMobile("/profile",VisibleInMobileProfile);
 });
-onMounted(() => {
-  window.addEventListener("resize", handleVisibleInMobile);
+onMounted(() =>
+{   resizeListener(()=>handleVisibleInMobile("/",VisibleInMobileCalender));
+  resizeListener(()=>handleVisibleInMobile("/profile",VisibleInMobileProfile));
 });
-handleVisibleInMobile();
-
+handleVisibleInMobile("/",VisibleInMobileCalender);
+handleVisibleInMobile("/profile",VisibleInMobileProfile);
 //static event data
 const [events, setEvents] = useState([
   {
@@ -52,7 +53,7 @@ const [show, setShow] = useState(false);
 <template>
   <section class="home__panel-container panel-container">
     <div
-      v-show="!show"
+      v-show="!show || !VisibleInMobileProfile"
       class="panel-container__activity-program activity-program"
     >
       <DashboardHeader>
@@ -76,7 +77,7 @@ const [show, setShow] = useState(false);
       <div class="activity-program__panel-context panel-context">
         <div
           class="panel-context__datepicker"
-          v-if="VisibleInMobile"
+          v-if="VisibleInMobileCalender"
           style="display: block"
         >
           <PersianCalendarDom />
@@ -94,8 +95,9 @@ const [show, setShow] = useState(false);
         </div>
       </div>
     </div>
-    <div v-if="VisibleInMobile">
-      <Profile v-show="show" @setShow="setShow" />
+    {{VisibleInMobileProfile && !show}}
+    <div v-if="VisibleInMobileProfile">
+      <Profile v-if="VisibleInMobileProfile && show" @setShow="setShow" />
     </div>
   </section>
 </template>
