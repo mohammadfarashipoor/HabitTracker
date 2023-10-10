@@ -10,6 +10,8 @@ This project, you can add an activity or event in your self-registration activit
 This program was made for the part software group's internship project, which was held In person for 5 weeks
 
 
+[Demo](https://codesandbox.io/p/github/mohammadfarashipoor/HabitTracker/develop)
+
 ## Built With
 
 ![Vue](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
