@@ -2,13 +2,18 @@
 
 
 
-## What is doing??
+## What is doing?
 This project, you can add an activity or event in your self-registration activities and add it to the daily work schedule that needs to be done.
 
 
 ## Why did I do it?
 This program was made for the part software group's internship project, which was held In person for 5 weeks
 
+## Demo
+
+`TIP 1: Dear friend, the authentication operation has been disabled for you to enter`
+
+`TIP 2: By clicking on the above link, the display window is not displayed correctly due to codesandbox bug. You just need to open the output of the project in a new window through the link or through the top right button.`
 
 [Demo](https://codesandbox.io/p/github/mohammadfarashipoor/HabitTracker/develop)
 
