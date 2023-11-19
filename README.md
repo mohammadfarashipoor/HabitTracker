@@ -17,6 +17,9 @@ This program was made for the part software group's internship project, which wa
 
 [Demo](https://codesandbox.io/p/github/mohammadfarashipoor/HabitTracker/develop)
 
+![HabitTracker](https://github.com/mohammadfarashipoor/HabitTracker/assets/77319747/da0db1eb-bf8f-4787-a562-8a5a5825afb5)
+
+
 ## Built With
 
 ![Vue](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
